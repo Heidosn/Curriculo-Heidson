@@ -1,1 +1,153 @@
-# Curriculo-Heidson
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Currículo de Heidson</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-image: url('fundo.jpg'); /* papel de parede */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      margin: 0;
+      min-height: 100vh;
+    }
+    .perfil-img {
+      width: 150px;
+      height: 200px; /* formato 3x4 */
+      object-fit: cover;
+      border-radius: 10px;
+      border: 5px solid white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .azul-custom {
+      color: #13416B;
+    }
+    .botao-musica {
+      background-color: #13416B;
+      color: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-top: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      border: none;
+    }
+    .botao-musica:hover {
+      background-color: #0f2f4e;
+    }
+
+    /* Animação para o nome rolando */
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    .scrolling-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scroll-left 10s linear infinite;
+    }
+
+    /* Container para esconder overflow da animação */
+    .scroll-container {
+      overflow: hidden;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Áudio -->
+  <audio id="musica-fundo" src="Twenty One Pilots - Backslide.mp3" type="audio/mpeg"></audio>
+
+  <div class="max-w-3xl mx-auto p-6 bg-white/90 shadow-2xl rounded-2xl mt-10 backdrop-blur-sm">
+    <header class="text-center mb-8">
+      <img src="eu.jpg" alt="Foto 3x4 do Aluno" class="perfil-img mx-auto mb-4" />
+      <div class="scroll-container">
+        <h2 class="text-2xl font-semibold azul-custom scrolling-text">
+          HEIDSON EMANUEL SANTOS DA SILVA
+        </h2>
+      </div>
+      <p class="text-gray-600 mt-2">Santo Antônio, Teresópolis - BA</p>
+      <p class="text-sm text-gray-600">CEP: 48080-130  | (75) 99993-5578</p>
+      <p class="text-sm text-gray-600">heidsonemanuel03@gmail.com</p>
+      <a href="https://www.linkedin.com/in/heidson-emanuel-santos-da-silva-34a8451b3"
+         target="_blank"
+         class="text-blue-600 underline text-sm inline-block mt-1 hover:text-blue-800 transition-all duration-300">
+         linkedin.com/in/heidson-emanuel-santos-da-silva-34a8451b3
+      </a>
+    </header>
+
+    <!-- Seções -->
+    <div class="section">
+      <h3 class="font-bold text-lg azul-custom">FORMAÇÃO ACADÊMICA</h3>
+      <ul class="list-disc list-inside text-gray-800 mt-2">
+        <li>Técnico em Eletromecânica</li>
+        <li>Engenharia de Produção - <a href="https://www.fss.edu.br" target="_blank" class="text-blue-600 underline hover:text-blue-800">Faculdade Santíssimo Sacramento</a></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3 class="font-bold text-lg azul-custom">EXPERIÊNCIAS PROFISSIONAIS</h3>
+      <ul class="list-disc list-inside text-gray-800 mt-2">
+        <li>Monitor de Sistema - <a href="https://www.multirastreamento.com.br" target="_blank" class="text-blue-600 underline hover:text-blue-800">MultiRastreamento</a> (Atual)</li>
+        <li>Serviço Militar - Exército Brasileiro (03/2023 - 01/2024)</li>
+        <li>Jovem Aprendiz - <a href="https://proterbem.org.br" target="_blank" class="text-blue-600 underline hover:text-blue-800">ProterBem</a> (10/2022 - 12/2022)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3 class="font-bold text-lg azul-custom">CURSOS E APRIMORAMENTO</h3>
+      <ul class="list-disc list-inside text-gray-800 mt-2">
+        <li>Informática Básica - Líder Cursos</li>
+        <li>Curso de Gestões Pessoais - SENAI</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3 class="font-bold text-lg azul-custom">HABILIDADES</h3>
+      <ul class="list-disc list-inside text-gray-800 mt-2">
+        <li>Conhecimento em manutenção eletromecânica</li>
+        <li>Leitura e interpretação de diagramas elétricos</li>
+        <li>Boa comunicação e trabalho em equipe</li>
+        <li>Disciplina e responsabilidade adquiridas no serviço militar</li>
+        <li>Carteira Nacional de Habilitação – Categoria AB</li>
+      </ul>
+    </div>
+
+    <!-- Botão da música -->
+    <div class="text-center mt-8">
+      <button id="botao-musica" class="botao-musica">Tocar Música</button>
+    </div>
+  </div>
+
+  <script>
+    const botaoMusica = document.getElementById('botao-musica');
+    const musicaFundo = document.getElementById('musica-fundo');
+
+    botaoMusica.addEventListener('click', () => {
+      if (musicaFundo.paused) {
+        musicaFundo.play();
+        botaoMusica.textContent = 'Pausar Música';
+      } else {
+        musicaFundo.pause();
+        botaoMusica.textContent = 'Tocar Música';
+      }
+    });
+  </script>
+</body>
+</html>
